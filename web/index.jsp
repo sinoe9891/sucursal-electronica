@@ -20,7 +20,16 @@
                     </tr>
                 </tbody>
             </table>
-            <br>
+            <br>Ï
+            <label for="Usuario">Tipo de Usuario</label>
+            <select name="role" >
+                 <option value="2">
+                    Clientes
+                </option>
+                <option value="1">
+                    Administrador
+                </option>
+            </select>
             <input type="submit" value="Login" name="bt_login" />
         </form>
 
