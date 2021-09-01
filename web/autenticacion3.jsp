@@ -2,7 +2,7 @@
 <%@page import="database.*"%>
 <%
     try {
-//      Conexiï¿½n Apache  Dba db = new Dba(application.getRealPath("") + "daw.mdb");
+//      Conexión Apache  Dba db = new Dba(application.getRealPath("") + "daw.mdb");
         Dba db = new Dba(application.getRealPath("votacion_2021_honduras.mdb"));
         db.conectar();
         db.query.execute("select username, password, role from users");
@@ -31,6 +31,7 @@
                  request.getRequestDispatcher("metricas-magistrados.jsp").forward(request, response);
             }else{
                 out.print("<script>alert('el usuario no existe')</script>");
+                request.getRequestDispatcher("../index.jsp").forward(request, response);
             }
             //llamar jsp correspondiete desde linea de comando
 
