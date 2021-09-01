@@ -31,7 +31,6 @@
                  request.getRequestDispatcher("metricas-magistrados.jsp").forward(request, response);
             }else{
                 out.print("<script>alert('el usuario no existe')</script>");
-                request.getRequestDispatcher("../index.jsp").forward(request, response);
             }
             //llamar jsp correspondiete desde linea de comando
 

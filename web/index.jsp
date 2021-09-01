@@ -49,7 +49,7 @@
                                 <p>Inicie sesión con su cuenta para poder votar</p>
                             </div>
                             <div class="form">
-                                <form name="f1" action="autenticacion.jsp" method="POST">
+                                <form name="f1" action="pages/autenticacion.jsp" method="POST">
                                     <div class="input-form">
                                         <label for="Usuario">Usuario</label>
                                         <input type="text" name="ti_usuario" value="" />
