@@ -169,7 +169,7 @@
                                                 if (request.getParameter("ver_mapa") != null) {
                                             %>
                                             <br>
-                                            <% Dba dbmapa = new Dba(application.getRealPath("votacion_2021_honduras.mdb"));
+                                            <% Dba dbmapa = new Dba(application.getRealPath("usuarios-sucursal.mdb"));
                                                 dbmapa.conectar();
                                                 dbmapa.query.execute("SELECT a.numero_mesa, a.centro_de_votacion, a.status_mesa, b.nombre_departamento, c.nombre_municipio, a.nombre_sector_domicilio, a.latitud, a.longitud, a.id_mesa "
                                                         + "FROM mesas_electorales a, departamentos b, municipios c WHERE a.id_mesa "
@@ -228,7 +228,7 @@
                                         //MODIFICAR un producto-----------------------------------------------   
                                         if (request.getParameter("bt_modificar") != null) {
                                             try {
-                                                Dba db = new Dba(application.getRealPath("votacion_2021_honduras.mdb"));
+                                                Dba db = new Dba(application.getRealPath("usuarios-sucursal.mdb"));
                                                 db.conectar();
                                                 int contador = db.query.executeUpdate("UPDATE mesas_electorales "
                                                         + "SET status_mesa='" + request.getParameter("estado_mesa") + "'"
@@ -262,7 +262,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <% Dba db = new Dba(application.getRealPath("votacion_2021_honduras.mdb"));
+                                                <% Dba db = new Dba(application.getRealPath("usuarios-sucursal.mdb"));
 
                                                     db.conectar();
 

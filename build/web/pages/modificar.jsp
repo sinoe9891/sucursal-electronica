@@ -18,7 +18,7 @@
 <%
  if (request.getParameter("bt_modificar") != null) {
     try {
-        Dba db = new Dba(application.getRealPath("votacion_2021_honduras.mdb"));
+        Dba db = new Dba(application.getRealPath("usuarios-sucursal.mdb"));
         db.conectar(); 
         
         int contador=db.query.executeUpdate("UPDATE usuarios "

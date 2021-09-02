@@ -90,7 +90,7 @@
                                         //AGREGAR REGISTRO-----------------------------------------------
                                         if (request.getParameter("bt_crear") != null) {
                                             try {
-                                                Dba db = new Dba(application.getRealPath("votacion_2021_honduras.mdb"));
+                                                Dba db = new Dba(application.getRealPath("usuarios-sucursal.mdb"));
                                                 db.conectar();
 
                                                 String nombre_presidente = request.getParameter("nombre_presidente");
@@ -128,7 +128,7 @@
                                         if (request.getParameter("p_eliminar") != null) {
                                             //ELIMINAR PRODUCTO----------------------------------------------- 
                                             try {
-                                                Dba db = new Dba(application.getRealPath("votacion_2021_honduras.mdb"));
+                                                Dba db = new Dba(application.getRealPath("usuarios-sucursal.mdb"));
                                                 db.conectar();
                                                 int contador = db.query.executeUpdate("delete from presidente WHERE id_presidente='" + request.getParameter("p_id") + "' ");
                                                 db.commit();
@@ -150,7 +150,7 @@
                                         //MODIFICAR un producto-----------------------------------------------   
                                         if (request.getParameter("bt_modificar") != null) {
                                             try {
-                                                Dba db = new Dba(application.getRealPath("votacion_2021_honduras.mdb"));
+                                                Dba db = new Dba(application.getRealPath("usuarios-sucursal.mdb"));
                                                 db.conectar();
                                                 int contador = db.query.executeUpdate("UPDATE presidente "
                                                         + "SET nombre_presidente='" + request.getParameter("ti_nombre_presidente") + "',   "
@@ -202,7 +202,7 @@
                                                             <div class="form-group">
                                                                 <label for="basicSelect">Partido Político</label>
                                                                 <select class="form-control" id="basicSelect" name="partido_presi">
-                                                                    <% Dba dba = new Dba(application.getRealPath("votacion_2021_honduras.mdb"));
+                                                                    <% Dba dba = new Dba(application.getRealPath("usuarios-sucursal.mdb"));
                                                                         dba.conectar();
                                                                         dba.query.execute("SELECT nombre, id from partidos_politicos ORDER BY id ASC");
                                                                         ResultSet rsdb = dba.query.getResultSet();
@@ -250,7 +250,7 @@
                                                     </thead>
                                                     <tbody>
 
-                                                        <% Dba db = new Dba(application.getRealPath("votacion_2021_honduras.mdb"));
+                                                        <% Dba db = new Dba(application.getRealPath("usuarios-sucursal.mdb"));
                                                             db.conectar();
                                                             db.query.execute("SELECT a.id_presidente, a.nombre_presidente, a.photo_profile, a.src_url_logo_movimiento, a.genero_presidente, a.id_parti_presidente, a.nombre_movimiento_partido, b.id, b.nombre, b.src_url_logo FROM presidente a, partidos_politicos b WHERE a.id_parti_presidente = b.id  ORDER BY a.id_presidente DESC");
                                                             ResultSet rs = db.query.getResultSet();

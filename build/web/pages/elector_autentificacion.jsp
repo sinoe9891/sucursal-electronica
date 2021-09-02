@@ -2,8 +2,8 @@
 <%@page import="database.*"%>
 <%
     try {
-//      Conexión Apache  Dba db = new Dba(application.getRealPath("") + "daw.mdb");
-        Dba db = new Dba(application.getRealPath("votacion_2021_honduras.mdb"));
+//      Conexiï¿½n Apache  Dba db = new Dba(application.getRealPath("") + "daw.mdb");
+        Dba db = new Dba(application.getRealPath("usuarios-sucursal.mdb"));
         db.conectar();
         db.query.execute("select nombre_votante, identidad, role from votantes");
         ResultSet rs = db.query.getResultSet();

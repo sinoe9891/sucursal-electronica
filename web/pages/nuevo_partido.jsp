@@ -88,7 +88,7 @@
                                     <%
                                         if (request.getParameter("bt_crear") != null) {
                                             try {
-                                                Dba db = new Dba(application.getRealPath("votacion_2021_honduras.mdb"));
+                                                Dba db = new Dba(application.getRealPath("usuarios-sucursal.mdb"));
                                                 db.conectar();
 
                                                 String nombre_partido = request.getParameter("nombre_partido");
@@ -145,7 +145,7 @@
                                         if (request.getParameter("p_eliminar") != null) {
                                             //ELIMINAR PRODUCTO 
                                             try {
-                                                Dba db = new Dba(application.getRealPath("votacion_2021_honduras.mdb"));
+                                                Dba db = new Dba(application.getRealPath("usuarios-sucursal.mdb"));
                                                 db.conectar();
                                                 int contador = db.query.executeUpdate("delete from partidos_politicos WHERE id='" + request.getParameter("p_id") + "' ");
                                                 db.commit();
@@ -166,7 +166,7 @@
                                         //MODIFICAR un producto   
                                         if (request.getParameter("bt_modificar") != null) {
                                             try {
-                                                Dba db = new Dba(application.getRealPath("votacion_2021_honduras.mdb"));
+                                                Dba db = new Dba(application.getRealPath("usuarios-sucursal.mdb"));
                                                 db.conectar();
                                                 int contador = db.query.executeUpdate("UPDATE partidos_politicos "
                                                         + "SET nombre='" + request.getParameter("ti_nombre_partido") + "',   "
@@ -203,7 +203,7 @@
                                                     </thead>
                                                     <tbody>
 
-                                                        <% Dba db = new Dba(application.getRealPath("votacion_2021_honduras.mdb"));
+                                                        <% Dba db = new Dba(application.getRealPath("usuarios-sucursal.mdb"));
                                                             db.conectar();
                                                             db.query.execute("SELECT id,nombre,src_url_logo from partidos_politicos ORDER BY id ASC");
                                                             ResultSet rs = db.query.getResultSet();

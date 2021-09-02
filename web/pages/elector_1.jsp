@@ -123,7 +123,7 @@
                             <section class="app-user-list">
                                 <div class="card">
                                     <div class="col-md-12">
-                                        <% Dba db = new Dba(application.getRealPath("votacion_2021_honduras.mdb"));
+                                        <% Dba db = new Dba(application.getRealPath("usuarios-sucursal.mdb"));
                                             db.conectar();
                                             db.query.execute("SELECT a.id_votante, a.identidad, a.nombre_votante, a.apellidos_votantes, a.sexo, a.fecha_nacimiento, a.estado, "
                                                     + "b.nombre_departamento, c.nombre_municipio, d.nombre_sector_domicilio, d.numero_mesa, d.linea, d.centro_de_votacion, "

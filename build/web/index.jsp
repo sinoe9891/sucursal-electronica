@@ -1,4 +1,4 @@
-<%@page contentType="text/html" pageEncoding="UTF-8" %> 
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="es">
 
@@ -43,7 +43,7 @@
                                                                 </div>
                                                                 <div class="caja-contenido">
                                                                         <h1 style="margin:40px 0">Sucursal Electrónica CEUTEC</h1>
-                                                                        
+
                                                                 </div>
                                                                 <div class="caja-contenido">
                                                                         <img class="hero" src="src/img/portada.jpeg" alt="">
@@ -60,8 +60,8 @@
                                         <img class="logo hidden" src="src/img/logo-ceutec.png" alt="">
                                         <div class="form-login">
                                                 <div class="titulo-form">
-                                                        <h3>Bienvenido al<br>sistema de Votación! 👋</h3>
-                                                        <p>Inicie sesión con su cuenta para poder votar</p>
+                                                        <h3>Bienvenido a<br>Banca en Línea CEUTEC! 👋</h3>
+                                                        <p>Inicie sesión con su cuenta</p>
                                                 </div>
                                                 <div class="form">
                                                         <form name="f1" action="pages/autenticacion.jsp" method="POST">
@@ -69,18 +69,12 @@
                                                                         <label for="Usuario">Usuario</label>
                                                                         <input type="text" name="ti_usuario" value="" />
                                                                 </div>
-                                                                <!--                                    <div class="input-group form-password-toggle mb-2">
-                                <input type="password" class="form-control" id="basic-default-password" placeholder="Your Password" aria-describedby="basic-default-password">
-                                <div class="input-group-append">
-                                    <span class="input-group-text cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye font-small-4"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></span>
-                                </div>
-                            </div>-->
                                                                 <div class="input-form">
                                                                         <label for="Usuario">Contraseña</label>
                                                                         <input type="password" name="ti_password" value="role" />
                                                                 </div>
                                                                 <div class="input-form">
-                                                                        <label for="Usuario">Role</label>
+                                                                        <label for="Usuario">Tipo de Usuario</label>
                                                                         <select name="role">
                                                                                 <option value="1">
                                                                                         Administrador
@@ -88,9 +82,9 @@
                                                                                 <option value="2">
                                                                                         Cliente
                                                                                 </option>
-                                                                                <option value="3">
+<!--                                                                                <option value="3">
                                                                                         Magistrados
-                                                                                </option>
+                                                                                </option>-->
                                                                         </select>
                                                                 </div>
                                                                 <br>

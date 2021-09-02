@@ -54,7 +54,7 @@
                                     <div class="nav-header">
                                         <div style="width: 100%;">
                                             <div style="display: flex;justify-content: space-between;margin:5px 0 15px 0">
-                                                <h3>Bienvenidos al Sistema de Votación Online 👋</h3>
+                                                <h3>Bienvenidos a la Banca en Línea CEUTEC 👋</h3>
                                                 <a href="../logout.jsp"><i class="fas fa-sign-out-alt"></i>Cerrar Sesión</a>
                                             </div>
                                         </div>

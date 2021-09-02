@@ -10,7 +10,7 @@
 if ( request.getParameter("bt_crear") !=null ) {
                   try {
                     Dba db = new Dba(application.getRealPath("daw.mdb"));
-//                    Dba db = new Dba(application.getRealPath("votacion_2021_honduras.mdb"));
+//                    Dba db = new Dba(application.getRealPath("usuarios-sucursal.mdb"));
                     db.conectar();
                     String nombre = request.getParameter("ti_nombre");
                     String apellido = request.getParameter("ti_apellidos");
@@ -41,7 +41,7 @@ if ( request.getParameter("bt_crear") !=null ) {
 <br>
         <br>
         <a href="listar.jsp">Regresar</a>
-        <a href="index.jsp">Cerrar Sesión</a>
+        <a href="index.jsp">Cerrar Sesiï¿½n</a>
         <br>
         <h4>Nuevo Usuario</h4>
         <form name="f1" action="nuevo.jsp" method="POST">

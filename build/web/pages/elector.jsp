@@ -201,7 +201,7 @@
                                     <div class="col-md-12">
                                         <div class="card text-center">
                                             <!--INFORMACIÓN  VOTANTE-->
-                                            <% Dba db = new Dba(application.getRealPath("votacion_2021_honduras.mdb"));
+                                            <% Dba db = new Dba(application.getRealPath("usuarios-sucursal.mdb"));
                                                 db.conectar();
                                                 db.query.execute("SELECT id_votante, estado, votacion_elector FROM votantes WHERE identidad LIKE '" + request.getParameter("identidad") + "'");
                                                 ResultSet rs = db.query.getResultSet();
@@ -253,7 +253,7 @@
                                             <div class="card-body">
                                                 <div class="tab-content" id="pills-tabContent">
                                                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"> 
-                                                        <% Dba dbb = new Dba(application.getRealPath("votacion_2021_honduras.mdb"));
+                                                        <% Dba dbb = new Dba(application.getRealPath("usuarios-sucursal.mdb"));
                                                             dbb.conectar();
                                                             dbb.query.execute("SELECT a.id_votante, a.identidad, a.nombre_votante, a.apellidos_votantes, a.sexo, a.fecha_nacimiento, a.estado, b.nombre_departamento, c.nombre_municipio, d.nombre_sector_domicilio, d.numero_mesa, d.linea, d.centro_de_votacion, a.votacion_elector "
                                                                     + "FROM votantes a, departamentos b, municipios c, mesas_electorales d "
@@ -351,7 +351,7 @@
                                                             <%  //MODIFICAR un producto-----------------------------------------------   
                                                                 if (request.getParameter("bt_votar_presidente") != null) {
                                                                     try {
-                                                                        Dba dbF = new Dba(application.getRealPath("votacion_2021_honduras.mdb"));
+                                                                        Dba dbF = new Dba(application.getRealPath("usuarios-sucursal.mdb"));
                                                                         dbF.conectar();
                                                                         int contador = dbF.query.executeUpdate("UPDATE votos_presidentes a SET a.numero_votos = a.numero_votos+1 WHERE a.id_presidente='" + request.getParameter("presidentes") + "' ");
                                                                         //                                                        int contador = dbF.query.executeUpdate("UPDATE votos_presidentes a SET a.numero_votos = a.numero_votos+1 WHERE a.id_presidente='" + request.getParameter("presidentes") + "' ");

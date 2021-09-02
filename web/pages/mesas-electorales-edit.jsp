@@ -97,7 +97,7 @@
                                         //AGREGAR REGISTRO-----------------------------------------------
                                         if (request.getParameter("bt_crear") != null) {
                                             try {
-                                                Dba db = new Dba(application.getRealPath("votacion_2021_honduras.mdb"));
+                                                Dba db = new Dba(application.getRealPath("usuarios-sucursal.mdb"));
                                                 db.conectar();
                                                 String centro_de_votacion = request.getParameter("centro_de_votacion");
                                                 String numero_mesa = request.getParameter("numero_mesa");
@@ -140,7 +140,7 @@
                                         if (request.getParameter("p_eliminar") != null) {
                                             //ELIMINAR PRODUCTO----------------------------------------------- 
                                             try {
-                                                Dba db = new Dba(application.getRealPath("votacion_2021_honduras.mdb"));
+                                                Dba db = new Dba(application.getRealPath("usuarios-sucursal.mdb"));
                                                 db.conectar();
                                                 int contador = db.query.executeUpdate("delete from mesas_electorales WHERE id_mesa='" + request.getParameter("p_id") + "' ");
                                                 db.commit();
@@ -162,7 +162,7 @@
                                         //MODIFICAR un producto-----------------------------------------------   
                                         if (request.getParameter("bt_modificar") != null) {
                                             try {
-                                                Dba db = new Dba(application.getRealPath("votacion_2021_honduras.mdb"));
+                                                Dba db = new Dba(application.getRealPath("usuarios-sucursal.mdb"));
                                                 db.conectar();
                                                 int contador = db.query.executeUpdate("UPDATE mesas_electorales "
                                                         + "SET centro_de_votacion='" + request.getParameter("ti_nombre_presidente") + "',   "
@@ -202,7 +202,7 @@
                                                             <div class="form-group">
                                                                 <label for="basicSelect">Departamentos</label>
                                                                 <select class="form-control" id="basicSelect" name="id_departamento_mesa">
-                                                                    <% Dba dbaept = new Dba(application.getRealPath("votacion_2021_honduras.mdb"));
+                                                                    <% Dba dbaept = new Dba(application.getRealPath("usuarios-sucursal.mdb"));
                                                                         dbaept.conectar();
                                                                         dbaept.query.execute("SELECT nombre_departamento, id_departamento from departamentos ORDER BY nombre_departamento ASC");
                                                                         ResultSet rsdept = dbaept.query.getResultSet();
@@ -223,7 +223,7 @@
                                                             <div class="form-group">
                                                                 <label class="form-label" for="enlace-url">Municipio</label>
                                                                 <select class="form-control" id="basicSelect" name="id_municipio_mesa">
-                                                                    <% Dba dbamuni = new Dba(application.getRealPath("votacion_2021_honduras.mdb"));
+                                                                    <% Dba dbamuni = new Dba(application.getRealPath("usuarios-sucursal.mdb"));
                                                                         dbamuni.conectar();
                                                                         dbamuni.query.execute("SELECT a.nombre_municipio, b.nombre_departamento, a.id_municipio, b.id_departamento FROM municipios a, departamentos b WHERE a.id_departamento = b.id_departamento ORDER BY a.nombre_municipio ASC");
                                                                         ResultSet rsmuni = dbamuni.query.getResultSet();
@@ -282,7 +282,7 @@
                                                     </thead>
                                                     <tbody>
 
-                                                        <% Dba db = new Dba(application.getRealPath("votacion_2021_honduras.mdb"));
+                                                        <% Dba db = new Dba(application.getRealPath("usuarios-sucursal.mdb"));
                                                             db.conectar();
                                                             db.query.execute("SELECT a.id_mesa, a.numero_mesa, a.nombre_sector_domicilio, a.centro_de_votacion, b.nombre_departamento, c.nombre_municipio, a.latitud, a.longitud "
                                                                     + "FROM mesas_electorales a, departamentos b, municipios c "

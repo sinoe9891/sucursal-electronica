@@ -93,8 +93,8 @@
                                 <div class="card">
                                     <div class="responsive">
                                         <%
-                                            try {
-                                                Dba db = new Dba(application.getRealPath("votacion_2021_honduras.mdb"));
+                                            try {vota
+                                                Dba db = new Dba(application.getRealPath("usuarios-sucuarsal.mdb"));
                                                 db.conectar();
                                                 db.query.execute("select nombre_presidente, photo_profile, src_url_logo_movimiento, genero_presidente from presidente");
                                                 ResultSet rs = db.query.getResultSet();

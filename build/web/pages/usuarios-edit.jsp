@@ -90,23 +90,27 @@
                                         //AGREGAR REGISTRO-----------------------------------------------
                                         if (request.getParameter("bt_crear") != null) {
                                             try {
-                                                Dba db = new Dba(application.getRealPath("votacion_2021_honduras.mdb"));
+                                                Dba db = new Dba(application.getRealPath("usuarios-sucursal.mdb"));
                                                 db.conectar();
 
-                                                String nombre_presidente = request.getParameter("nombre_presidente");
-                                                String url_logo_partido = request.getParameter("url_photo_oficial");
-                                                String genero_president = request.getParameter("genero_presi");
-                                                String id_parti_president = request.getParameter("partido_presi");
-                                                String nombre_movimiento = request.getParameter("nombre_movimiento");
+                                                String username = request.getParameter("username");
+                                                String nombre_usuario = request.getParameter("nombre_usuario");
+                                                String apellido_usuario = request.getParameter("apellido_usuario");
+                                                String identidad_usuario = request.getParameter("identidad_usuario");
+                                                String password_usuario = request.getParameter("password_usuario");
+												String correo_usuario = request.getParameter("correo_usuario");
+                                                String role_usuario = request.getParameter("role_usuario");
 
-                                                int contador = db.query.executeUpdate("INSERT into presidente"
-                                                        + "(nombre_presidente,photo_profile,genero_presidente,nombre_movimiento_partido,id_parti_presidente) "
+                                                int contador = db.query.executeUpdate("INSERT into users"
+                                                        + "(username, nombre, apellidos, identidad, email, password, role) "
                                                         + "VALUES('"
-                                                        + nombre_presidente + "'"
-                                                        + ",'" + url_logo_partido + "'"
-                                                        + ",'" + genero_president + "'"
-                                                        + ",'" + nombre_movimiento + "'"
-                                                        + ",'" + id_parti_president
+                                                        + username + "'"
+                                                        + ",'" + nombre_usuario + "'"
+                                                        + ",'" + apellido_usuario + "'"
+                                                        + ",'" + identidad_usuario + "'"
+                                                        + ",'" + correo_usuario + "'"
+                                                        + ",'" + password_usuario + "'"
+                                                        + ",'" + role_usuario
                                                         + "')");
 
                                                 db.commit();
@@ -128,7 +132,7 @@
                                         if (request.getParameter("p_eliminar") != null) {
                                             //ELIMINAR PRODUCTO----------------------------------------------- 
                                             try {
-                                                Dba db = new Dba(application.getRealPath("votacion_2021_honduras.mdb"));
+                                                Dba db = new Dba(application.getRealPath("usuarios-sucursal.mdb"));
                                                 db.conectar();
                                                 int contador = db.query.executeUpdate("delete from presidente WHERE id_presidente='" + request.getParameter("p_id") + "' ");
                                                 db.commit();
@@ -150,7 +154,7 @@
                                         //MODIFICAR un producto-----------------------------------------------   
                                         if (request.getParameter("bt_modificar") != null) {
                                             try {
-                                                Dba db = new Dba(application.getRealPath("votacion_2021_honduras.mdb"));
+                                                Dba db = new Dba(application.getRealPath("usuarios-sucursal.mdb"));
                                                 db.conectar();
                                                 int contador = db.query.executeUpdate("UPDATE presidente "
                                                         + "SET nombre_presidente='" + request.getParameter("ti_nombre_presidente") + "',   "
@@ -175,54 +179,45 @@
 
                                             <div class="nav-header">
                                                 <div style="text-align:left;width: 100%;">
-                                                    <form name="f1" action="edit-presidentes.jsp" method="POST">
+												<%-- //Agregar nuevo --%>
+                                                    <form name="f1" action="usuarios-edit.jsp" method="POST">
                                                         <h3>Agregar Candidato Presidencial</h3>
                                                         <div class="modal-body flex-grow-1">
                                                             <div class="form-group">
-                                                                <label class="form-label" for="name-presidente">Nombre del Candidato</label>
-                                                                <input type="text" name="nombre_presidente" class="form-control dt-full-name" id="basic-icon-default-fullname" placeholder="Nombre Completo" >
+                                                                <label class="form-label" for="username">Nickname</label>
+                                                                <input type="text" name="username" class="form-control dt-full-name" id="basic-icon-default-fullname" placeholder="jperez" >
                                                             </div>
                                                             <div class="form-group">
-                                                                <label class="form-label" for="enlace-url">Fotografía Oficial</label>
-                                                                <input type="text" name="url_photo_oficial"  id="basic-icon-default-uname" class="form-control dt-uname" placeholder=".jpg, .png" >
+                                                                <label class="form-label" for="nombre_usuario">Nombres</label>
+                                                                <input type="text" name="nombre_usuario" class="form-control dt-full-name" id="basic-icon-default-fullname" placeholder="Nombres" >
                                                             </div>
-
                                                             <div class="form-group">
-                                                                <label class="form-label" for="enlace-url">Género</label>
-                                                                <select class="form-control" id="basicSelect" name="genero_presi">
-                                                                    <option value="M">
-                                                                        Masculina
+                                                                <label class="form-label" for="apellido_usuario">Apellidos</label>
+                                                                <input type="text" name="apellido_usuario" class="form-control dt-full-name" id="basic-icon-default-fullname" placeholder="Apellidos" >
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="form-label" for="identidad_usuario">Identidad</label>
+                                                                <input type="text" name="identidad_usuario" class="form-control dt-full-name" id="basic-icon-default-fullname" placeholder="Identidad" >
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="form-label" for="name-presidente">Contraseña</label>
+                                                                <input type="password" name="password_usuario" class="form-control dt-full-name" id="basic-icon-default-fullname" placeholder="Contraseña" >
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="form-label" for="name-presidente">Correo</label>
+                                                                <input type="email" name="correo_usuario" class="form-control dt-full-name" id="basic-icon-default-fullname" placeholder="Correo Electrónico" >
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="form-label" for="enlace-url">Tipo de Usuario</label>
+                                                                <select class="form-control" id="basicSelect" name="role_usuario">
+                                                                    <option value="1">
+                                                                        Administrador
                                                                     </option>
-                                                                    <option value="F">
-                                                                        Femenina
+                                                                    <option value="2">
+                                                                        Cliente
                                                                     </option>
                                                                 </select>
                                                             </div>
-
-                                                            <div class="form-group">
-                                                                <label for="basicSelect">Partido Político</label>
-                                                                <select class="form-control" id="basicSelect" name="partido_presi">
-                                                                    <% Dba dba = new Dba(application.getRealPath("votacion_2021_honduras.mdb"));
-                                                                        dba.conectar();
-                                                                        dba.query.execute("SELECT nombre, id from partidos_politicos ORDER BY id ASC");
-                                                                        ResultSet rsdb = dba.query.getResultSet();
-                                                                        String nombre_partido;
-                                                                        String id_partido;
-                                                                        while (rsdb.next()) {
-
-                                                                            nombre_partido = rsdb.getString(1);
-                                                                            id_partido = rsdb.getString(2);
-                                                                    %>
-                                                                    <option value="<%=id_partido%>">
-                                                                        <%=nombre_partido%>
-                                                                    </option>
-                                                                    <%  }%> 
-                                                                </select>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label class="form-label" for="enlace-url">Nombre Movimiento</label>
-                                                                <input type="text" name="nombre_movimiento"  id="basic-icon-default-uname" class="form-control dt-uname" placeholder="Nombre Movimiento" >
-                                                            </div>  
                                                             <button type="submit" class="btn btn-primary mr-1 data-submit waves-effect waves-float waves-light" value="crear" name="bt_crear">Crear</button>
                                                         </div>
                                                     </form>
@@ -240,43 +235,32 @@
                                                         <tr>
 
                                                             <!--<th data-field="id">ID</th>-->
-                                                            <th data-field="nombre" data-editable="false">FOTO</th>
+                                                            <th data-field="operaciones" data-editable="false">USERNAM</th>
                                                             <th data-field="descripcion" data-editable="false">NOMBRE</th>
-                                                            <th data-field="operaciones" data-editable="false">PARTIDO</th>
-                                                            <th data-field="operaciones" data-editable="false">NOMBRE MOVIMIENTO</th>
-                                                            <th data-field="operaciones" data-editable="false">GENERO</th>
-                                                            <th data-field="operaciones" data-editable="false">ACCIONES</th>
+                                                            <th data-field="operaciones" data-editable="false">APELLIDOS</th>
+                                                            <th data-field="operaciones" data-editable="false">IDENTIDAD</th>
+                                                            <th data-field="operaciones" data-editable="false">EMAIL</th>
+                                                            <th data-field="operaciones" data-editable="false">ROLE</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
 
-                                                        <% Dba db = new Dba(application.getRealPath("votacion_2021_honduras.mdb"));
+                                                        <% Dba db = new Dba(application.getRealPath("usuarios-sucursal.mdb"));
                                                             db.conectar();
-                                                            db.query.execute("SELECT a.id_presidente, a.nombre_presidente, a.photo_profile, a.src_url_logo_movimiento, a.genero_presidente, a.id_parti_presidente, a.nombre_movimiento_partido, b.id, b.nombre, b.src_url_logo FROM presidente a, partidos_politicos b WHERE a.id_parti_presidente = b.id  ORDER BY a.id_presidente DESC");
+                                                            db.query.execute("select id_user, nombre, apellidos, username, identidad, email, role from users ORDER BY nombre DESC");
                                                             ResultSet rs = db.query.getResultSet();
-                                                            String id_presidente, nombre, photo, url_logo, genero, partido_politico, nombre_movimiento, src_url_logo;
+                                                            String id_user, nombre, apellidos, username, identidad, email, role;
                                                             while (rs.next()) {
 
-                                                                id_presidente = rs.getString(1);
-                                                                partido_politico = rs.getString(9);
+                                                                id_user = rs.getString(1);
                                                                 nombre = rs.getString(2);
-                                                                photo = rs.getString(3);
-                                                                url_logo = rs.getString(4);
-                                                                genero = rs.getString(5);
-                                                                nombre_movimiento = rs.getString(7);
-                                                                src_url_logo = rs.getString(10);
+                                                                apellidos = rs.getString(3);
+                                                                username = rs.getString(4);
+                                                                identidad = rs.getString(5);
+                                                                email = rs.getString(6);
+                                                                role = rs.getString(7);
                                                         %>
                                                         <tr role="row" class="odd">
-<!--                                                            <td>
-                                                                <div class="d-flex justify-content-left align-items-center">
-                                                                    <%=id_presidente%>
-                                                                </div>
-                                                            </td>-->
-                                                            <td>
-                                                                <div class="img-logo-gestionar-partido">
-                                                                    <img src="<%=photo%>" alt="<%=photo%>" style="width: 60% !important;">
-                                                                </div>
-                                                            </td>
                                                             <td>
                                                                 <div class="d-flex justify-content-left align-items-center">
                                                                     <%=nombre%>
@@ -284,18 +268,28 @@
                                                             </td>
                                                             <td>
                                                                 <div class="d-flex justify-content-left align-items-center">
-                                                                    <%=partido_politico%>
+                                                                    <%=apellidos%>
+                                                                </div>
+                                                            </td>
+                                                           <td>
+                                                                <div class="d-flex justify-content-left align-items-center">
+                                                                    <%=username%>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="d-flex justify-content-left align-items-center">
+                                                                    <%=identidad%>
                                                                 </div>
                                                             </td>
                                                             <td>
                                                                 <div class="d-flex justify-content-left align-items-center">
                                                                 
-                                                                    <%=nombre_movimiento%>
+                                                                    <%=email%>
                                                                 </div>
                                                             </td>
                                                             <td>
                                                                 <div class="d-flex justify-content-left align-items-center">
-                                                                    <%=genero%>
+                                                                    <%=role%>
                                                                 </div>
                                                             </td>
                                                             <td> 
@@ -305,11 +299,11 @@
                                                                              color: black;"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
                                                                     </button>
                                                                     <div class="dropdown-menu">
-                                                                        <a class="dropdown-item"  data-toggle="modal" data-target="#inlineForm" onclick="mod('<%=id_presidente%>', '<%=nombre%>', '<%=photo%>', '<%=genero%>')">
+                                                                        <a class="dropdown-item"  data-toggle="modal" data-target="#inlineForm" onclick="mod('<%=id_user%>', '<%=nombre%>', '<%=apellidos%>', '<%=username%>', '<%=identidad%>', '<%=email%>', '<%=role%>')">
                                                                             <i data-feather="edit-2" class="mr-50"></i>
                                                                             <span>Modificar</span>
                                                                         </a>
-                                                                        <a class="dropdown-item" href="edit-presidentes.jsp?p_id=<%=id_presidente%>&p_eliminar=1">
+                                                                        <a class="dropdown-item" href="usuarios-edit.jsp?p_id=<%=id_user%>&p_eliminar=1">
                                                                             <i data-feather="trash" class="mr-50"></i>
                                                                             <span>Eliminar</span>
                                                                         </a>

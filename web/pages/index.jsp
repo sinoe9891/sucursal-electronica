@@ -25,7 +25,7 @@
 
             <div style="display: flex;flex-direction: column;flex-wrap: wrap;">
                 <div style="margin: 0 5px;display: flex;flex-wrap: wrap;">
-                    <% Dba db = new Dba(application.getRealPath("votacion_2021_honduras.mdb"));
+                    <% Dba db = new Dba(application.getRealPath("usuarios-sucursal.mdb"));
                         db.conectar();
                         db.query.execute("SELECT a.identidad, a.voto_presidente, b.presidente_id, c.nombre_presidente, c.photo_profile, c.id_presidente FROM votantes a, votos_electores b, presidente c "
                                 + "WHERE a.identidad LIKE '" + request.getParameter("identidad") + "' "
