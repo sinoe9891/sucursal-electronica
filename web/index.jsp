@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="css/style.css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
-        <title>Votación Online</title>
+        <title>Sucursal Electrónica</title>
         <link rel="shortcut icon" href="src/img/unitec.ico" type="image/x-icon">
         <link rel="stylesheet" type="text/css" href="src/app-assets/vendors/css/vendors.min.css">
         <link rel="stylesheet" type="text/css"

@@ -3,10 +3,10 @@
 <%
     try {
       //Conexión Apache  
-              Dba db = new Dba(application.getRealPath("") + "usuarios-sucursal.mdb");
-//        Dba db = new Dba(application.getRealPath("usuarios-sucuarsal.mdb"));
+//              Dba db = new Dba(application.getRealPath("") + "usuarios-sucursal.mdb");
+        Dba db = new Dba(application.getRealPath("usuarios-sucursal.mdb"));
         db.conectar();
-        db.query.execute("select username, password, role from users");
+        db.query.execute("select username, password, role from users1");
         ResultSet rs = db.query.getResultSet();
         String centinela = "n";
         while (rs.next()) {

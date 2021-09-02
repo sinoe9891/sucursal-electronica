@@ -21,7 +21,7 @@
         <link rel="stylesheet" type="text/css" href="../src/app-assets/css/pages/app-user.css">
         <link rel="stylesheet" type="text/css" href="../src/app-assets/css/components.css">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
-        <title>Votación Online</title>
+        <title>Usuarios</title>
         <link rel="shortcut icon" href="../src/img/unitec.ico" type="image/x-icon">
         <!-- BEGIN: Vendor CSS-->
         <link rel="stylesheet" type="text/css" href="../src/app-assets/vendors/css/vendors.min.css">
@@ -91,28 +91,28 @@
                                         if (request.getParameter("bt_crear") != null) {
                                             try {
                                                 Dba db = new Dba(application.getRealPath("usuarios-sucursal.mdb"));
+//                                                Dba db = new Dba(application.getRealPath("") + "usuarios-sucursal.mdb");
                                                 db.conectar();
-
+                                                
                                                 String username = request.getParameter("username");
                                                 String nombre_usuario = request.getParameter("nombre_usuario");
                                                 String apellido_usuario = request.getParameter("apellido_usuario");
                                                 String identidad_usuario = request.getParameter("identidad_usuario");
                                                 String password_usuario = request.getParameter("password_usuario");
-												String correo_usuario = request.getParameter("correo_usuario");
+						String correo_usuario = request.getParameter("correo_usuario");
                                                 String role_usuario = request.getParameter("role_usuario");
 
-                                                int contador = db.query.executeUpdate("INSERT into users"
-                                                        + "(username, nombre, apellidos, identidad, email, password, role) "
+                                                int contador = db.query.executeUpdate("INSERT into users1"
+                                                        + "(username,nombres,apellidos,identidad,password,email,role) "
                                                         + "VALUES('"
                                                         + username + "'"
                                                         + ",'" + nombre_usuario + "'"
-                                                        + ",'" + apellido_usuario + "'"
                                                         + ",'" + identidad_usuario + "'"
-                                                        + ",'" + correo_usuario + "'"
                                                         + ",'" + password_usuario + "'"
-                                                        + ",'" + role_usuario
+                                                        + ",'" + correo_usuario + "'"
+                                                        + ",'" + role_usuario + "'"
+                                                        + ",'" + apellido_usuario
                                                         + "')");
-
                                                 db.commit();
                                                 db.desconectar();
                                                 if (contador == 1) {
@@ -134,7 +134,7 @@
                                             try {
                                                 Dba db = new Dba(application.getRealPath("usuarios-sucursal.mdb"));
                                                 db.conectar();
-                                                int contador = db.query.executeUpdate("delete from presidente WHERE id_presidente='" + request.getParameter("p_id") + "' ");
+                                                int contador = db.query.executeUpdate("delete from users1 WHERE id='" + request.getParameter("p_id") + "' ");
                                                 db.commit();
                                                 db.desconectar();
                                                 if (contador >= 1) {
@@ -156,11 +156,11 @@
                                             try {
                                                 Dba db = new Dba(application.getRealPath("usuarios-sucursal.mdb"));
                                                 db.conectar();
-                                                int contador = db.query.executeUpdate("UPDATE presidente "
-                                                        + "SET nombre_presidente='" + request.getParameter("ti_nombre_presidente") + "',   "
-                                                        + "photo_profile='" + request.getParameter("ti_url_photo") + "',   "
-                                                        + "genero_presidente='" + request.getParameter("genero_presidente") + "'"
-                                                        + "WHERE id_presidente='" + request.getParameter("ti_id") + "' ");
+                                                int contador = db.query.executeUpdate("UPDATE users1 "
+                                                        + "SET nombres='" + request.getParameter("ti_nombre_presidente") + "',   "
+                                                        + "apellidos='" + request.getParameter("ti_url_photo") + "',   "
+                                                        + "username='" + request.getParameter("genero_presidente") + "'"
+                                                        + "WHERE id='" + request.getParameter("ti_id") + "' ");
                                                 if (contador >= 1) {
                                                     String alerta = "<div class='alert alert-success' role='alert'><h4 class='alert-heading'>El registro se modificó correctamente</h4></div>";
                                                     out.print(alerta);
@@ -201,11 +201,11 @@
                                                             </div>
                                                             <div class="form-group">
                                                                 <label class="form-label" for="name-presidente">Contraseña</label>
-                                                                <input type="password" name="password_usuario" class="form-control dt-full-name" id="basic-icon-default-fullname" placeholder="Contraseña" >
+                                                                <input type="text" name="password_usuario" class="form-control dt-full-name" id="basic-icon-default-fullname" placeholder="Contraseña" >
                                                             </div>
                                                             <div class="form-group">
                                                                 <label class="form-label" for="name-presidente">Correo</label>
-                                                                <input type="email" name="correo_usuario" class="form-control dt-full-name" id="basic-icon-default-fullname" placeholder="Correo Electrónico" >
+                                                                <input type="text" name="correo_usuario" class="form-control dt-full-name" id="basic-icon-default-fullname" placeholder="Correo Electrónico" >
                                                             </div>
                                                             <div class="form-group">
                                                                 <label class="form-label" for="enlace-url">Tipo de Usuario</label>
@@ -229,54 +229,53 @@
                                     <section class="app-user-list">
                                         <div class="card">
                                             <div class="card-datatable table-responsive pt-0">
-                                                <h3>Lista de Presidentes</h3>
+                                                <h3>Lista de Usuarios</h3>
                                                 <table class="user-list-table ">
                                                     <thead class="thead-light">
                                                         <tr>
 
                                                             <!--<th data-field="id">ID</th>-->
-                                                            <th data-field="operaciones" data-editable="false">USERNAM</th>
+                                                            <th data-field="operaciones" data-editable="false">USERNAME</th>
                                                             <th data-field="descripcion" data-editable="false">NOMBRE</th>
                                                             <th data-field="operaciones" data-editable="false">APELLIDOS</th>
                                                             <th data-field="operaciones" data-editable="false">IDENTIDAD</th>
                                                             <th data-field="operaciones" data-editable="false">EMAIL</th>
-                                                            <th data-field="operaciones" data-editable="false">ROLE</th>
+                                                            <th data-field="operaciones" data-editable="false">ACCIONES</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
 
                                                         <% Dba db = new Dba(application.getRealPath("usuarios-sucursal.mdb"));
                                                             db.conectar();
-                                                            db.query.execute("select id_user, nombre, apellidos, username, identidad, email, role from users ORDER BY nombre DESC");
+                                                            db.query.execute("select id, nombres, apellidos, username, identidad, email, role from users1 ORDER BY id DESC");
                                                             ResultSet rs = db.query.getResultSet();
-                                                            String id_user, nombre, apellidos, username, identidad, email, role;
+                                                            String id_user, nombre, apellidos, username,identidad, email;
                                                             while (rs.next()) {
 
                                                                 id_user = rs.getString(1);
+                                                                username = rs.getString(4);
                                                                 nombre = rs.getString(2);
                                                                 apellidos = rs.getString(3);
-                                                                username = rs.getString(4);
                                                                 identidad = rs.getString(5);
                                                                 email = rs.getString(6);
-                                                                role = rs.getString(7);
                                                         %>
                                                         <tr role="row" class="odd">
                                                             <td>
-                                                                <div class="d-flex justify-content-left align-items-center">
-                                                                    <%=nombre%>
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                <div class="d-flex justify-content-left align-items-center">
-                                                                    <%=apellidos%>
-                                                                </div>
-                                                            </td>
-                                                           <td>
                                                                 <div class="d-flex justify-content-left align-items-center">
                                                                     <%=username%>
                                                                 </div>
                                                             </td>
                                                             <td>
+                                                                <div class="d-flex justify-content-left align-items-center">
+                                                                    <%=nombre%>
+                                                                </div>
+                                                            </td>
+                                                           <td>
+                                                                <div class="d-flex justify-content-left align-items-center">
+                                                                    <%=apellidos%>
+                                                                </div>
+                                                            </td>
+                                                           <td>
                                                                 <div class="d-flex justify-content-left align-items-center">
                                                                     <%=identidad%>
                                                                 </div>
@@ -287,11 +286,6 @@
                                                                     <%=email%>
                                                                 </div>
                                                             </td>
-                                                            <td>
-                                                                <div class="d-flex justify-content-left align-items-center">
-                                                                    <%=role%>
-                                                                </div>
-                                                            </td>
                                                             <td> 
                                                                 <div class="dropdown">
                                                                     <button type="button" class="btn btn-sm text-white dropdown-toggle hide-arrow" data-toggle="dropdown">
@@ -299,7 +293,7 @@
                                                                              color: black;"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
                                                                     </button>
                                                                     <div class="dropdown-menu">
-                                                                        <a class="dropdown-item"  data-toggle="modal" data-target="#inlineForm" onclick="mod('<%=id_user%>', '<%=nombre%>', '<%=apellidos%>', '<%=username%>', '<%=identidad%>', '<%=email%>', '<%=role%>')">
+                                                                        <a class="dropdown-item"  data-toggle="modal" data-target="#inlineForm" onclick="mod('<%=id_user%>', '<%=nombre%>', '<%=apellidos%>', '<%=username%>')">
                                                                             <i data-feather="edit-2" class="mr-50"></i>
                                                                             <span>Modificar</span>
                                                                         </a>
@@ -329,25 +323,25 @@
             <div d="myModal" class="modal-dialog modal-dialog-centered" role="document" i>
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title" id="myModalLabel33">Modificar Partido Político</h4>
+                        <h4 class="modal-title" id="myModalLabel33">Modificar Usuario</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form name="fM1" action="edit-presidentes.jsp" method="POST">
+                    <form name="fM1" action="usuarios-edit.jsp" method="POST">
                         <input type="hidden" id="idh1" name="ti_id" value="" />
                         <div class="modal-body">
-                            <label>Nombre Partido Político: </label>
+                            <label>Nombres: </label>
                             <div class="form-group">
                                 <input id="ids1" type="text" name="ti_nombre_presidente" value="" class="form-control"/>
                             </div>
 
-                            <label>URL de Bandera: </label>
+                            <label>Apellido: </label>
                             <div class="form-group">
                                 <input id="ids2" type="text" name="ti_url_photo" value="" class="form-control"/>
                             </div>
 
-                            <label>Género: </label>
+                            <label>Username: </label>
                             <div class="form-group">
                                 <input id="ids3" type="text" name="genero_presidente" value="" class="form-control"/>
                             </div>

@@ -21,7 +21,7 @@
         <link rel="stylesheet" type="text/css" href="../src/app-assets/css/pages/app-user.css">
         <link rel="stylesheet" type="text/css" href="../src/app-assets/css/components.css">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
-        <title>Votación Online</title>
+        <title>Usuarios</title>
         <link rel="shortcut icon" href="../src/img/unitec.ico" type="image/x-icon">
         <!-- BEGIN: Vendor CSS-->
         <link rel="stylesheet" type="text/css" href="../src/app-assets/vendors/css/vendors.min.css">
@@ -89,33 +89,34 @@
                                                     try {
                                                         Dba db = new Dba(application.getRealPath("usuarios-sucursal.mdb"));
                                                         db.conectar();
-                                                        db.query.execute("select nombre, apellidos, username, identidad, email, role from users");
+                                                        db.query.execute("select username,nombres,apellidos,email,role from users1");
                                                         ResultSet rs = db.query.getResultSet();
                                                         String centinela = "n";
-                                                                                                while (rs.next()) {%>
-                                                <tr role="row" class="odd">
-                                                    <td>
-                                                        <div class="d-flex justify-content-left align-items-center">
-                                                            <%=rs.getString(1)%>
-                                                        </div>
-                                                    </td>
-                                                    <td><%=rs.getString(2)%></td>
-                                                    <%-- <td><%=rs.getString(3)%></td>  --%>
-                                                    <td><%=rs.getString(4)%></td>
-                                                    <td><%=rs.getString(5)%></td>
-                                                    <td>
-                                                        <span class="text-truncate align-middle">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                                 stroke-linejoin="round" class="feather feather-database font-medium-3 text-success mr-50">
-                                                                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
-                                                                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
-                                                                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
-                                                            </svg>
-                                                            SuperAdmin
-                                                        </span><%=rs.getString(6)%>
-                                                    </td>
-                                                </tr>
+                                                        while (rs.next()) {%>
+                                                        <tr role="row" class="odd">
+                                                            <td>
+                                                                <div class="d-flex justify-content-left align-items-center">
+                                                                    <%=rs.getString(2)%>
+                                                                </div>
+                                                            </td>
+                                                            <td><%=rs.getString(3)%></td>
+                                                             <td><%=rs.getString(3)%></td>  
+                                                            <td><%=rs.getString(4)%></td>
+                                                            <td><% 
+
+                                                                String role = rs.getString(5);
+                                                                String roles = "1";
+                                                                if (role.equals(roles)) {
+                                                                        String alerta = "Administrador";
+                                                                        out.print(alerta);
+                                                                    }else{
+                                                                     String alerta = "Cliente";
+                                                                        out.print(alerta);
+                                                                }
+
+
+                                                                %></td>
+                                                        </tr>
                                                 <%
                                                         }
                                                         db.desconectar();
