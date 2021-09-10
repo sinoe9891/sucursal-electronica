@@ -8,6 +8,7 @@
         <ul class="navigation navigation-main">
             <li class="nav-item usuarios"><a href="usuarios.jsp"><i class="fas fa-user-cog"></i>Usuarios</li></a>
             <li class="nav-item partidos"><a href="tarjetas.jsp"><i class="fas fa-credit-card"></i>Tipos de Tarjetas</li></a>
+            <li class="nav-item cuentas"><a href="cuentas.jsp"><i class="fas fa-user"></i>Cuentas</li></a>
             <li class="nav-item presidente"><a href="clientes.jsp"><i class="fas fa-user"></i>Clientes</li></a>
 <!--            <li class="nav-item metricas"><a href="metricas-admin.jsp"><i class="fas fa-poll"></i>Métricas</li></a>
             <li class="nav-item alcaldes"><a href="alcaldes.jsp"><i class="fas fa-user-friends"></i>Alcaldes</li></a>
