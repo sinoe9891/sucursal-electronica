@@ -22,7 +22,7 @@
         <link rel="stylesheet" type="text/css" href="../src/app-assets/css/pages/app-user.css">
         <link rel="stylesheet" type="text/css" href="../src/app-assets/css/components.css">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
-        <title>Votación Online</title>
+        <title>Sucursal Electrónica</title>
         <link rel="shortcut icon" href="../src/img/unitec.ico" type="image/x-icon">
         <!-- BEGIN: Vendor CSS-->
         <link rel="stylesheet" type="text/css" href="../src/app-assets/vendors/css/vendors.min.css">
@@ -53,17 +53,10 @@
                                     <div class="nav-header">
                                         <div style="width: 100%;">
                                             <div style="display: flex;justify-content: space-between;margin:5px 0 15px 0">
-                                                <h3>Bienvenidos al Sistema de Votación Online 👋</h3>
+                                                <h3>Bienvenidos a la Banca en Línea CEUTEC 👋</h3>
                                                 <a href="logout.jsp"><i class="fas fa-sign-out-alt"></i>Cerrar Sesión</a>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </section>
-                            <section class="app-user-list">
-                                <div class="card">
-                                    <div class="nav-header">
-                                        <h3>Bienvenidos a la MESA #1231</h3>
                                     </div>
                                 </div>
                             </section>

@@ -75,10 +75,6 @@
                                 <div class="card">
                                     <div class="nav-header">
                                         <div style="width: 100%;">
-                                            <div style="display: flex;justify-content: space-between;margin:5px 0 15px 0">
-                                                <a href="clientes.jsp"><i class="fas fa-arrow-left"></i>Regresar</a>
-                                                <a href="../index.jsp"><i class="fas fa-sign-out-alt"></i>Cerrar Sesión</a>
-                                            </div>
                                             <h3>Gestionar Clientes</h3>
                                         </div>
                                     </div>
@@ -98,21 +94,23 @@
                                                 String genero_president = request.getParameter("genero_presi");
                                                 String id_parti_president = request.getParameter("partido_presi");
                                                 String nombre_movimiento = request.getParameter("nombre_movimiento");
+                                                String numeroCuentas = request.getParameter("numeroCuentas");
 
                                                 int contador = db.query.executeUpdate("INSERT into presidente"
-                                                        + "(nombre_presidente,photo_profile,genero_presidente,nombre_movimiento_partido,id_parti_presidente) "
+                                                        + "(nombre_presidente,photo_profile,genero_presidente,nombre_movimiento_partido,cuenta,id_parti_presidente) "
                                                         + "VALUES('"
                                                         + nombre_presidente + "'"
                                                         + ",'" + url_logo_partido + "'"
                                                         + ",'" + genero_president + "'"
                                                         + ",'" + nombre_movimiento + "'"
+                                                        + ",'" + numeroCuentas + "'"
                                                         + ",'" + id_parti_president
                                                         + "')");
 
                                                 db.commit();
                                                 db.desconectar();
                                                 if (contador == 1) {
-                                                    String alerta = "<div class='alert alert-success' role='alert'><h4 class='alert-heading'>Partido Político Se agregó con éxito</h4></div>";
+                                                    String alerta = "<div class='alert alert-success' role='alert'><h4 class='alert-heading'>Se agregó con éxito</h4></div>";
                                                     out.print(alerta);
                                                 }
                                             } catch (Exception e) {
@@ -199,6 +197,26 @@
                                                                 </select>
                                                             </div>
 
+                                                            <div class="form-group">
+                                                                <label for="basicSelect">Número de cuenta</label>
+                                                                <select class="form-control" id="basicSelect" name="numeroCuentas">
+                                                                    <% Dba dbas = new Dba(application.getRealPath("usuarios-sucursal.mdb"));
+                                                                        dbas.conectar();
+                                                                        dbas.query.execute("SELECT * from cuenta_cliente WHERE estado = FALSE ORDER BY id_cuenta ASC");
+                                                                        ResultSet rsdbd = dbas.query.getResultSet();
+                                                                        String id_cuenta;
+                                                                        String estadoCuenta;
+                                                                        while (rsdbd.next()) {
+
+                                                                            id_cuenta = rsdbd.getString(2);
+                                                                            estadoCuenta = rsdbd.getString(1);
+                                                                    %>
+                                                                    <option value="<%=estadoCuenta%>">
+                                                                        <%=estadoCuenta%>
+                                                                    </option>
+                                                                    <%  }%> 
+                                                                </select>
+                                                            </div>
                                                             <div class="form-group">
                                                                 <label for="basicSelect">Tipo de Tarjeta</label>
                                                                 <select class="form-control" id="basicSelect" name="partido_presi">

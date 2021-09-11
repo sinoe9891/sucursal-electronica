@@ -190,7 +190,7 @@
                                     <section class="app-user-list">
                                         <div class="card">
                                             <div class="card-datatable table-responsive pt-0">
-                                                <h3>Lista de Partidos Políticos</h3>
+                                                <h3>Lista de Tarjetas</h3>
                                                 <table class="user-list-table ">
                                                     <thead class="thead-light">
                                                         <tr>
@@ -269,7 +269,7 @@
             <div d="myModal" class="modal-dialog modal-dialog-centered" role="document" i>
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title" id="myModalLabel33">Modificar Partido Político</h4>
+                        <h4 class="modal-title" id="myModalLabel33">Modificar Tarjeta</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -277,12 +277,12 @@
                     <form name="fM1" action="nueva-tarjeta.jsp" method="POST">
                         <input type="hidden" id="idh1" name="ti_id" value="" />
                         <div class="modal-body">
-                            <label>Nombre Partido Político: </label>
+                            <label>Nombre Tarjeta: </label>
                             <div class="form-group">
                                 <input id="ids1" type="text" name="ti_nombre_partido" value="" class="form-control"/>
                             </div>
 
-                            <label>URL de Bandera: </label>
+                            <label>URL imagen: </label>
                             <div class="form-group">
                                 <input id="ids2" type="text" name="ti_url_logo" value="" class="form-control"/>
                             </div>
