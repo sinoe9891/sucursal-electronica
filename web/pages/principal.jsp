@@ -4,7 +4,8 @@
     }
 %>
 
-
+<%@page import="database.*"%>
+<%@page import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="es">
@@ -40,7 +41,11 @@
         <link rel="stylesheet" type="text/css" href="../src/app-assets/css/themes/bordered-layout.css">
 
     </head>
-
+<style>
+            .home a{
+                color:#c3151c;
+            }
+        </style>
     <body>
         <div class="main-sidebar">
             <div class="container-login">
@@ -55,8 +60,14 @@
                                         <div style="width: 100%;">
                                             <div style="display: flex;justify-content: space-between;margin:5px 0 15px 0">
                                                 <h3>Bienvenidos a la Banca en Línea CEUTEC 👋</h3>
-                                                <a href="../logout.jsp"><i class="fas fa-sign-out-alt"></i>Cerrar Sesión</a>
+                                                
                                             </div>
+                                        </div>
+                                        <div style="text-align:right;width: 50%;">
+                                            <a href="home-edit.jsp"><button class="btn add-new btn-primary mt-100" type="button"><span>Gestionar</span></button></a>
+<!--                                            <button class="btn add-new btn-info mt-100" type="button"><span>Editar</span></button>
+                                            <button class="btn add-new btn-warning mt-100" type="button"><span>Modificar</span></button>
+                                            <button class="btn add-new btn-danger mt-100" type="button"><span>Eliminar</span></button>-->
                                         </div>
                                     </div>
                                 </div>
@@ -64,9 +75,27 @@
                             <section class="app-user-list">
                                 <div class="card">
                                     <div class="responsive">
-                                        <div class="card-content">
+                                        <%
+                                            try {
+                                                Dba db = new Dba(application.getRealPath("/usuarios-sucursal.mdb"));
+                                                db.conectar();
+                                                db.query.execute("select nombre, src_url_logo, descripcion from home");
+                                                ResultSet rs = db.query.getResultSet();
+                                                String centinela = "n";
+                                                while (rs.next()) {%>
+                                        <div class="card-content" style="width: 45% !important;padding: 15px;">
+                                            <h1><%=rs.getString(1)%></h1>
+                                            <p style="font-size:16px;"><%=rs.getString(3)%></p>
 
                                         </div>
+
+                                        <%
+                                                }
+                                                db.desconectar();
+                                            } catch (Exception e) {
+                                                e.printStackTrace();
+                                            }
+                                        %>                                                                   
                                     </div>
                                 </div>
                             </section>

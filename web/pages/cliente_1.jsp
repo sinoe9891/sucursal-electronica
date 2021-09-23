@@ -40,7 +40,20 @@
         <link rel="stylesheet" type="text/css" href="../src/app-assets/css/themes/dark-layout.css">
         <link rel="stylesheet" type="text/css" href="../src/app-assets/css/themes/bordered-layout.css">
     </head>
-
+    <style>
+.home a{
+                color:#c3151c;
+            }
+            span.switch-icon-left {
+                display: none;
+            }
+            span.switch-icon-right {
+                display: none;
+            }
+            td {
+                padding: 0.90rem 1.5rem !important;
+            }
+        </style>
     <body>
         <div class="main-sidebar">
             <div class="container-login">

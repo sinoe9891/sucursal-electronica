@@ -1,16 +1,14 @@
-<%
-    if (session.getAttribute("s_user") == null) {
+<%if (session.getAttribute("s_user") == null) {
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 %>
-<%@page import="java.sql.*"%> 
 <%@page import="database.*"%>
-
+<%@page import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="es">
+<html lang="en">
 
-        <head>
+    <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,13 +21,16 @@
         <link rel="stylesheet" type="text/css" href="../src/app-assets/css/pages/app-user.css">
         <link rel="stylesheet" type="text/css" href="../src/app-assets/css/components.css">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
-        <title>Sucursal Electrónica</title>
+        <title>Tipos de Tarjetas</title>
         <link rel="shortcut icon" href="../src/img/unitec.ico" type="image/x-icon">
         <!-- BEGIN: Vendor CSS-->
         <link rel="stylesheet" type="text/css" href="../src/app-assets/vendors/css/vendors.min.css">
-        <link rel="stylesheet" type="text/css" href="../src/app-assets/vendors/css/tables/datatable/dataTables.bootstrap4.min.css">
-        <link rel="stylesheet" type="text/css" href="../src/app-assets/vendors/css/tables/datatable/responsive.bootstrap4.min.css">
-        <link rel="stylesheet" type="text/css" href="../src/app-assets/vendors/css/tables/datatable/buttons.bootstrap4.min.css">
+        <link rel="stylesheet" type="text/css"
+              href="../src/app-assets/vendors/css/tables/datatable/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet" type="text/css"
+              href="../src/app-assets/vendors/css/tables/datatable/responsive.bootstrap4.min.css">
+        <link rel="stylesheet" type="text/css"
+              href="../src/app-assets/vendors/css/tables/datatable/buttons.bootstrap4.min.css">
         <!-- END: Vendor CSS-->
 
         <!-- BEGIN: Theme CSS-->
@@ -39,12 +40,22 @@
         <link rel="stylesheet" type="text/css" href="../src/app-assets/css/components.css">
         <link rel="stylesheet" type="text/css" href="../src/app-assets/css/themes/dark-layout.css">
         <link rel="stylesheet" type="text/css" href="../src/app-assets/css/themes/bordered-layout.css">
-    </head>
 
+        <!-- BEGIN: Page CSS-->
+        <!-- <link rel="stylesheet" type="text/css" href="../src/app-assets/css/core/menu/menu-types/vertical-menu.css">
+    <link rel="stylesheet" type="text/css" href="../src/app-assets/css/plugins/forms/form-validation.css">
+    <link rel="stylesheet" type="text/css" href="../src/app-assets/css/pages/app-user.css"> -->
+        <!-- END: Page CSS-->
+        <style>
+            .home a{
+                color:#c3151c;
+            }
+        </style>
+    </head>   
     <body>
         <div class="main-sidebar">
             <div class="container-login">
-                <%@include file="sidebar-cliente.jsp" %>
+                <%@include file="sidebar.jsp" %>
                 <div class="main-body-page"> 
                     <div class="content-wrapper">
                         <div class="content-body">
@@ -52,10 +63,14 @@
                             <section class="app-user-list">
                                 <div class="card">
                                     <div class="nav-header">
-                                        <div style="width: 100%;">
-                                            <div style="display: flex;justify-content: space-between;margin:5px 0 15px 0">
-                                                <h3>Bienvenido a Banca en Línea CEUTEC! 👋</h3>
-                                            </div>
+                                        <div style="width: 50%;">
+                                            <h3>Sobre Nosotros</h3>
+                                        </div>
+                                        <div style="text-align:right;width: 50%;">
+                                            <a href="home-edit.jsp"><button class="btn add-new btn-primary mt-100" type="button"><span>Gestionar</span></button></a>
+<!--                                            <button class="btn add-new btn-info mt-100" type="button"><span>Editar</span></button>
+                                            <button class="btn add-new btn-warning mt-100" type="button"><span>Modificar</span></button>
+                                            <button class="btn add-new btn-danger mt-100" type="button"><span>Eliminar</span></button>-->
                                         </div>
                                     </div>
                                 </div>
@@ -92,7 +107,6 @@
                 </div>
             </div>
         </div>
-
         <!-- BEGIN: Vendor JS-->
         <script src="../src/app-assets/vendors/js/vendors.min.js"></script>
         <!-- BEGIN Vendor JS-->
@@ -115,7 +129,5 @@
         <!-- BEGIN: Page JS-->
         <script src="../src/app-assets/js/scripts/pages/app-user-list.js"></script>
         <!-- END: Page JS-->
-
-    </body>
-
+    </body> 
 </html>

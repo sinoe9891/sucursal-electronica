@@ -7,7 +7,9 @@
     <nav>
         <ul class="navigation navigation-main">
             <!--<li class="nav-item elector"><a href="elector_login.jsp"><i class="fas fa-user"></i></i>Elector</li></a>-->
+            <li class="nav-item home"><a href="cliente_1.jsp"><i class="fas fa-home"></i>Inicio</li></a>
             <li class="nav-item mesas"><a href="transferencias.jsp"><i class="fas fa-exchange-alt"></i></i>Transferencias</li></a>
+            <li class="nav-item sucursales"><a href="sucursales_cliente.jsp"><i class="fas fa-university"></i></i>Sucursales</li></a>
             <!--<li class="nav-item votacion"><a href="miembro-electores.jsp"><i class="fas fa-users"></i>Votantes</li></a>-->
             <li class="nav-item header-item">Configuración</li>
             <li class="nav-item"><a href="../logout.jsp"><i class="fas fa-sign-out-alt"></i></i>Cerrar Sesión</li></a>
