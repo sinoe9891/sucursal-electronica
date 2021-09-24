@@ -96,7 +96,7 @@
                                         </div>
                                 </div>
                                 <div class="copyright">
-                                        <p>Hecho por Danny Velásquez con 🧡</p>
+                                        <p>Hecho por Jefferson con 🧡</p>
                                 </div>
                         </div>
                 </div>

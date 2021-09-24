@@ -27,7 +27,7 @@
             if (request.getParameter("role").equals("1")) {
                  request.getRequestDispatcher("principal.jsp").forward(request, response);
             }else if (request.getParameter("role").equals("2")) {
-                 request.getRequestDispatcher("miembro-mesa.jsp").forward(request, response);
+                 request.getRequestDispatcher("cliente.jsp").forward(request, response);
             }else if (request.getParameter("role").equals("3")) {
                  request.getRequestDispatcher("metricas-magistrados.jsp").forward(request, response);
             }else{

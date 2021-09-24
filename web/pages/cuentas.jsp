@@ -67,7 +67,7 @@
                                             <h3>Cuentas</h3>
                                         </div>
                                         <div style="text-align:right;width: 50%;">
-                                            <a href="nueva-tarjeta.jsp"><button class="btn add-new btn-primary mt-100" type="button"><span>Gestionar</span></button></a>
+                                            <a href="cuentas-nueva.jsp"><button class="btn add-new btn-primary mt-100" type="button"><span>Gestionar</span></button></a>
 <!--                                            <button class="btn add-new btn-info mt-100" type="button"><span>Editar</span></button>
                                             <button class="btn add-new btn-warning mt-100" type="button"><span>Modificar</span></button>
                                             <button class="btn add-new btn-danger mt-100" type="button"><span>Eliminar</span></button>-->
@@ -82,7 +82,7 @@
                                             try {
                                                 Dba db = new Dba(application.getRealPath("/usuarios-sucursal.mdb"));
                                                 db.conectar();
-                                                db.query.execute("select nombre, src_url_logo from partidos_politicos");
+                                                db.query.execute("SELECT a.nombre_presidente, a.cuenta, b.tipo_cuenta FROM presidente a, cuenta_cliente b WHERE a.id_presidente = b.id_cliente  ORDER BY a.id_presidente DESC");
                                                 ResultSet rs = db.query.getResultSet();
                                                 String centinela = "n";
                                                 while (rs.next()) {%>
